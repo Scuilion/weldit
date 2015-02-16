@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile project(':base')
+    testCompile 'junit:junit:4.11'
+}
+
+test.doFirst {
+    copy {
+        from 'build/resources/main/META-INF/beans.xml'
+        into 'build/classes/main/META-INF'
+    }
+    copy {
+        from 'build/resources/main/META-INF/beans.xml'
+        into 'build/resources/main/META-INF'
+    }
+}
+
+eclipse {
+    project {
+        referencedProjects 'base'
+    }
+}

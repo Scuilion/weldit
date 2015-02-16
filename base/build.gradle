@@ -1,0 +1,42 @@
+apply plugin: 'maven-publish'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+group = 'com.scuilion.weld-producer'
+version = '0.1'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+// jar {
+//   from ('./src/main/java') {
+//     include 'META-INF/beans.xml'
+//   }
+// }
+
+dependencies {
+    compile 'org.jboss.weld:weld-se:1.0.1-Final'
+    testCompile 'junit:junit:4.11'
+}
+
+test.doFirst {
+    copy {
+        from 'build/resources/main/META-INF/beans.xml'
+        into 'build/classes/main/META-INF/'
+    }
+    copy {
+        from 'build/resources/test/META-INF/beans.xml'
+        into 'build/classes/test/META-INF/'
+    }
+}
