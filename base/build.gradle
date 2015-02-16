@@ -19,15 +19,13 @@ publishing {
     }
 }
 
-// jar {
-//   from ('./src/main/java') {
-//     include 'META-INF/beans.xml'
-//   }
-// }
-
 dependencies {
     compile 'org.jboss.weld:weld-se:1.0.1-Final'
     testCompile 'junit:junit:4.11'
+}
+
+test {
+    testLogging.events org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_OUT
 }
 
 test.doFirst {

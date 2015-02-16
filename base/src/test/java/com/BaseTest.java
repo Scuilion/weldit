@@ -5,7 +5,7 @@ import com.Producer;
 
 import static org.junit.Assert.*;
 
-public class ProducerTest {
+public class BaseTest {
     @Test public void testSomeLibraryMethod() {
         Producer classUnderTest = new Producer();
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());

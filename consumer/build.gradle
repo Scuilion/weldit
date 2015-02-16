@@ -12,6 +12,10 @@ dependencies {
     testCompile 'junit:junit:4.11'
 }
 
+test {
+    testLogging.events org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_OUT
+}
+
 test.doFirst {
     copy {
         from 'build/resources/main/META-INF/beans.xml'
