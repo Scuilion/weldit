@@ -15,7 +15,7 @@ public class Producer {
         WeldContainer container = weld.initialize();
         writer = container.instance().select(Writer.class).get();
         weld.shutdown();
-        writer.something();
+        writer.process();
         return true;
     }
 }

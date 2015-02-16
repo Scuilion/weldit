@@ -1,5 +1,5 @@
 package com;
 
 interface Writer {
-	public void something();
+	public void process();
 }

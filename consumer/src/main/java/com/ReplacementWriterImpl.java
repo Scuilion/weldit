@@ -7,7 +7,7 @@ import javax.enterprise.inject.Specializes;
 public class ReplacementWriterImpl implements Writer {
 
 	@Override
-	public void something() {
+	public void process() {
 		System.out.println("************************");
 		System.out.println("in alternative");
 		System.out.println("************************");
